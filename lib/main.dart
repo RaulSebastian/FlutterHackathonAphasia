@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_hackathon_aphasia/MainAppBar.dart';
 import 'package:flutter_hackathon_aphasia/calendar.dart';
+import 'package:flutter_hackathon_aphasia/words.dart';
 
 void main() => runApp(MyApp());
 
@@ -119,6 +119,7 @@ class _MyHomePageState extends State<MyHomePage> {
               leading: Icon(Icons.title),
               title: Text("Words"),
               subtitle: Text("Learn some words"),
+              onTap: _navigateToWords,
             ),
           ],
         ),
@@ -135,6 +136,10 @@ class _MyHomePageState extends State<MyHomePage> {
   void _navigateToCalender() async{
     String value = await Navigator.push(context, MaterialPageRoute<String>(builder: (context) => CalendarPage()));
 
+  }
+
+  void _navigateToWords() async{
+    String value = await Navigator.push(context, MaterialPageRoute<String>(builder: (context) => WordsPage()));
   }
 
 }

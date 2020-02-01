@@ -6,7 +6,7 @@ Wortlisten / Karteikarten (auch als Tree)
      - Wort
 	 - Bild
 	 - Counter
-	   - # angezeigt
+	   - Anzahl angezeigt
 	   - Kann ich
 	   - Kann ich nicht
   
