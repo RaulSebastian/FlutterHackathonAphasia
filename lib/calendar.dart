@@ -41,10 +41,19 @@ class CalendarPageState extends State<CalendarPage> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            Text(
+        new FlatButton(
+            onPressed: () {},
+            child: Text(
               DateFormat('yyyy-MM-dd').format(DateTime.now()),
               style: Theme.of(context).textTheme.display2,
             ),
+        ),
+          new FlatButton(
+            onPressed: () {},
+            child: Text(
+              "Change Date"
+            ),
+          ),
           ],
         ),
       ),
