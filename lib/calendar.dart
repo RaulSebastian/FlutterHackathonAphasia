@@ -59,7 +59,11 @@ class CalendarPageState extends State<CalendarPage> {
               "Change Date"
             ),
           ),
-            Text("The Date is a:"),
+            Text("The Selected Date is a:"),
+            Text(
+              DateFormat('EEEE').format(pickedDate),
+              style: Theme.of(context).textTheme.display2,
+            ),
           ],
         ),
       ),
