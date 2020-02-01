@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_hackathon_aphasia/calendar.dart';
+import 'package:flutter_hackathon_aphasia/time.dart';
 import 'package:flutter_hackathon_aphasia/words.dart';
 
 void main() => runApp(MyApp());
@@ -107,6 +108,7 @@ class _MyHomePageState extends State<MyHomePage> {
               leading: Icon(Icons.access_time),
               title: Text("Time"),
               subtitle: Text("Choose a time"),
+              onTap: _navigateToTime,
             ),
             Divider(),
             ListTile(
@@ -136,6 +138,10 @@ class _MyHomePageState extends State<MyHomePage> {
   void _navigateToCalender() async{
     String value = await Navigator.push(context, MaterialPageRoute<String>(builder: (context) => CalendarPage()));
 
+  }
+
+  void _navigateToTime() async{
+    String value = await Navigator.push(context, MaterialPageRoute<String>(builder: (context) => TimePage()));
   }
 
   void _navigateToWords() async{
