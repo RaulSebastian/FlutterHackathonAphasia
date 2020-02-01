@@ -19,7 +19,7 @@ class TtsWidget extends StatelessWidget {
           FlutterTts flutterTts = FlutterTts();
           
           flutterTts.setLanguage(language);
-          flutterTts.setSpeechRate(1.0);
+          flutterTts.setSpeechRate(0.4);
           flutterTts.setVolume(1.0);
           flutterTts.setPitch(1.0);
           await flutterTts.stop();
