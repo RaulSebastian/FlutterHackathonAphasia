@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:flutter_image/network.dart';
 
 
 class WordsPage extends StatefulWidget {
@@ -36,6 +37,31 @@ class WordsPageState extends State<WordsPage> {
         child: Column(
 
           children: <Widget>[
+            Text(
+              'Pinky',
+              textAlign: TextAlign.center,
+              overflow: TextOverflow.ellipsis,
+              style: TextStyle(fontSize: 32, fontWeight: FontWeight.bold),
+            ),
+            Spacer(),
+            new Image(
+              image: new NetworkImageWithRetry('https://i.pinimg.com/474x/4d/68/fc/4d68fceb4529a5c8c07b6c78507a7d55--the-brain-sticker.jpg'),
+            ),
+            Spacer(),
+            Row(
+              children: <Widget>[
+                FlatButton(
+                  child: Text("OK"),
+                  color: Colors.blue,
+                  textColor: Colors.white,
+                  disabledColor: Colors.grey,
+                  disabledTextColor: Colors.black,
+                  padding: EdgeInsets.all(8.0),
+                  splashColor: Colors.blueAccent,
+                  onPressed: () {},
+                ),
+              ],
+            ),
 //            BasicDateField(),
 
           ],
