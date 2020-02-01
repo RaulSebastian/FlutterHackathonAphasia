@@ -27,6 +27,7 @@ dependencies:
   datetime_picker_formfield: ^1.0.0
   flutter_image: ^3.0.0
   intl: ^0.16.1
+  tinder_card: ^0.1.1
 
 
 dev_dependencies:

@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-import 'package:flutter_image/network.dart';
-
+import 'package:flutter_hackathon_aphasia/word-details.dart';
+// import 'package:flutter_image/network.dart';
+import 'package:tinder_card/tinder_card.dart';
 
 class WordsPage extends StatefulWidget {
   WordsPage({Key key, this.title}) : super(key: key);
@@ -31,42 +32,10 @@ class WordsPageState extends State<WordsPage> {
         // the App.build method, and use it to set our appbar title.
         title: Text(widget.widgetTitle),
       ),
-      body: Center(
-        // Center is a layout widget. It takes a single child and positions it
-        // in the middle of the parent.
-        child: Column(
-
-          children: <Widget>[
-            Text(
-              'Pinky',
-              textAlign: TextAlign.center,
-              overflow: TextOverflow.ellipsis,
-              style: TextStyle(fontSize: 32, fontWeight: FontWeight.bold),
-            ),
-            Spacer(),
-            new Image(
-              image: new NetworkImageWithRetry('https://i.pinimg.com/474x/4d/68/fc/4d68fceb4529a5c8c07b6c78507a7d55--the-brain-sticker.jpg'),
-            ),
-            Spacer(),
-            Row(
-              children: <Widget>[
-                FlatButton(
-                  child: Text("OK"),
-                  color: Colors.blue,
-                  textColor: Colors.white,
-                  disabledColor: Colors.grey,
-                  disabledTextColor: Colors.black,
-                  padding: EdgeInsets.all(8.0),
-                  splashColor: Colors.blueAccent,
-                  onPressed: () {},
-                ),
-              ],
-            ),
-//            BasicDateField(),
-
-          ],
+      body: TinderSwapCard(
+              demoProfiles: listOfWords,
+              myCallback: (decision) {},
         ),
-      ),
       floatingActionButton: FloatingActionButton(
         tooltip: 'Say',
         child: Icon(Icons.play_arrow),
@@ -96,3 +65,21 @@ class BasicDateField extends StatelessWidget {
   }
 }
 */
+
+//dummy data
+final List<WordDetails> listOfWords = [
+  new WordDetails(
+    photos: [
+      "assets/images/brain.jpg",
+    ],
+    name: "Brain",
+    bio: "The Brain of Pinky & the Brain",
+  ),
+  new WordDetails(
+    photos: [
+      "assets/images/pinky.jpg",
+    ],
+    name: "Pinky",
+    bio: "Piny of Pinky & the Brain",
+  ),
+];
