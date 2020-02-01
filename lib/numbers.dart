@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:flutter_hackathon_aphasia/tts.dart';
 import 'package:intl/intl.dart';
 
 class NumbersPage extends StatefulWidget {
@@ -45,14 +46,11 @@ class BasicDateField extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(children: <Widget>[
       FlatButton(
-          onPressed: () {
-
-          },
-          child: Text(
-            "1",
-          )
-          
-          )
+          onPressed: () {},
+          child: Row(children: <Widget>[
+            Expanded(flex: 70, child: Text("1")),
+            Expanded(flex: 70, child: TtsWidget(listenableText: "1"))
+          ]))
     ]);
   }
 }
