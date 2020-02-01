@@ -1,6 +1,8 @@
+import 'package:datetime_picker_formfield/datetime_picker_formfield.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter/widgets.dart';
+import 'package:intl/intl.dart';
 
 
 class CalendarPage extends StatefulWidget {
@@ -26,6 +28,7 @@ class CalendarPage extends StatefulWidget {
 
 class CalendarPageState extends State<CalendarPage> {
 
+  DateTime now = DateTime.now();
 
   @override
   Widget build(BuildContext context) {
@@ -41,7 +44,7 @@ class CalendarPageState extends State<CalendarPage> {
         child: Column(
 
           children: <Widget>[
-            Text("Calender Page"),
+            BasicDateField(),
 
           ],
         ),
@@ -49,8 +52,28 @@ class CalendarPageState extends State<CalendarPage> {
       floatingActionButton: FloatingActionButton(
 
         tooltip: 'Increment',
-        child: Icon(Icons.add),
+        child: Icon(Icons.play_arrow),
       ), // This trailing comma makes auto-formatting nicer for build methods.
     );
+  }
+}
+
+class BasicDateField extends StatelessWidget {
+  final format = DateFormat("yyyy-MM-dd");
+  @override
+  Widget build(BuildContext context) {
+    return Column(children: <Widget>[
+      Text('Today is the'),
+      DateTimeField(
+        format: format,
+        onShowPicker: (context, currentValue) {
+          return showDatePicker(
+              context: context,
+              firstDate: DateTime(1900),
+              initialDate: currentValue ?? DateTime.now(),
+              lastDate: DateTime(2100));
+        },
+      ),
+    ]);
   }
 }

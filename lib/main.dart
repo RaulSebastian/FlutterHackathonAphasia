@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_hackathon_aphasia/MainAppBar.dart';
 import 'package:flutter_hackathon_aphasia/calendar.dart';
-import 'package:translator/translator.dart';
 
 void main() => runApp(MyApp());
 
