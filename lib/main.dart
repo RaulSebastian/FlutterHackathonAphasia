@@ -98,21 +98,25 @@ class _MyHomePageState extends State<MyHomePage> {
             ListTile(
               leading: Icon(Icons.calendar_today),
               title: Text("Calender"),
+              subtitle: Text("Choose a date"),
             ),
             Divider(),
             ListTile(
               leading: Icon(Icons.access_time),
               title: Text("Time"),
+              subtitle: Text("Choose a time"),
             ),
             Divider(),
             ListTile(
               leading: Icon(Icons.format_list_numbered),
               title: Text("Numbers"),
+              subtitle: Text("Choose a number"),
             ),
             Divider(),
             ListTile(
               leading: Icon(Icons.title),
               title: Text("Words"),
+              subtitle: Text("Learn some words"),
             ),
           ],
         ),
