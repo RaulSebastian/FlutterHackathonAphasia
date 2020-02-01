@@ -45,7 +45,7 @@ class CalendarPageState extends State<CalendarPage> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
         new FlatButton(
-            onPressed: () {__changeDate();},
+            onPressed: () {__changeDate(context);},
             child: Text(
               DateFormat('yyyy-MM-dd').format(pickedDate),
               style: Theme.of(context).textTheme.display2,
@@ -53,7 +53,7 @@ class CalendarPageState extends State<CalendarPage> {
         ),
           new FlatButton(
             onPressed: () {
-              __changeDate();
+              __changeDate(context);
             },
             child: Text(
               "Change Date"
@@ -71,19 +71,21 @@ class CalendarPageState extends State<CalendarPage> {
     );
   }
 
-  __changeDate(){
-    DatePicker.showDatePicker(context,
-        showTitleActions: true,
-        minTime: DateTime(1900),
-        maxTime: DateTime(3000), onChanged: (date) {
-          print('change $date');
-        }, onConfirm: (date) {
+  __changeDate(BuildContext context) async {
+    final DateTime d = await showDatePicker( //we wait for the dialog to return
+      context: context,
+      initialDate: pickedDate,
+      firstDate: DateTime(1900),
+      lastDate: DateTime(3000),
+    );
+    if (d != null) //if the user has selected a date
+      setState(() {
+        // we format the selected date and assign it to the state variable
+        pickedDate = d;
+      });
 
-          setState(() {
-            pickedDate = date;
-          });
-        }, currentTime: pickedDate, locale: LocaleType.en);
   }
+
 }
 
 
