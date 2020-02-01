@@ -11,18 +11,15 @@ class TtsWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     FlutterTts flutterTts = FlutterTts();
-    return Column(
-    mainAxisSize: MainAxisSize.min,
-    children: <Widget>[
+    return
       IconButton(
         icon: Icon(Icons.volume_up),
         tooltip: 'Listen',
         onPressed: () {
           flutterTts.speak(listenableText);
+
         },
-      )
-    ],
-  );
+      );
   }
 
 }

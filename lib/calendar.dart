@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:flutter_hackathon_aphasia/tts.dart';
 import 'package:intl/intl.dart';
 
 
@@ -69,7 +70,7 @@ class CalendarPageState extends State<CalendarPage> {
       floatingActionButton: FloatingActionButton(
 
         tooltip: 'Play',
-        child: Icon(Icons.play_arrow),
+        child: TtsWidget(listenableText : "test"),
       ), // This trailing comma makes auto-formatting nicer for build methods.
     );
   }
