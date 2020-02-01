@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_hackathon_aphasia/calendar.dart';
 import 'package:translator/translator.dart';
 
 void main() => runApp(MyApp());
@@ -99,6 +100,7 @@ class _MyHomePageState extends State<MyHomePage> {
               leading: Icon(Icons.calendar_today),
               title: Text("Calender"),
               subtitle: Text("Choose a date"),
+              onTap: _navigateToCalender,
             ),
             Divider(),
             ListTile(
@@ -128,4 +130,11 @@ class _MyHomePageState extends State<MyHomePage> {
       ), // This trailing comma makes auto-formatting nicer for build methods.
     );
   }
+
+
+  void _navigateToCalender() async{
+    String value = await Navigator.push(context, MaterialPageRoute<String>(builder: (context) => CalendarPage()));
+
+  }
+
 }
