@@ -44,13 +44,14 @@ class CalendarPageState extends State<CalendarPage> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-        new FlatButton(
-            onPressed: () {__changeDate(context);},
-            child: Text(
-              DateFormat('yyyy-MM-dd').format(pickedDate),
-              style: Theme.of(context).textTheme.display2,
+            ListTile(
+                title: Text(
+                  DateFormat('yyyy-MM-dd').format(pickedDate),
+                  style: Theme.of(context).textTheme.display2,
+                ),
+                trailing: TtsWidget(listenableText : DateFormat('yyyy-MM-dd').format(pickedDate), language: "en-us",),
+              onTap: () {__changeDate(context);},
             ),
-        ),
           new FlatButton(
             onPressed: () {
               __changeDate(context);
@@ -75,6 +76,9 @@ class CalendarPageState extends State<CalendarPage> {
     );
   }
 
+  String __getDateText(DateTime time){
+
+  }
   __changeDate(BuildContext context) async {
     final DateTime d = await showDatePicker( //we wait for the dialog to return
       context: context,
