@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:flutter_datetime_picker/flutter_datetime_picker.dart';
 import 'package:intl/intl.dart';
 
 
@@ -27,6 +28,8 @@ class CalendarPage extends StatefulWidget {
 
 class CalendarPageState extends State<CalendarPage> {
 
+  DateTime pickedDate = DateTime.now();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -42,18 +45,21 @@ class CalendarPageState extends State<CalendarPage> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
         new FlatButton(
-            onPressed: () {},
+            onPressed: () {__changeDate();},
             child: Text(
-              DateFormat('yyyy-MM-dd').format(DateTime.now()),
+              DateFormat('yyyy-MM-dd').format(pickedDate),
               style: Theme.of(context).textTheme.display2,
             ),
         ),
           new FlatButton(
-            onPressed: () {},
+            onPressed: () {
+              __changeDate();
+            },
             child: Text(
               "Change Date"
             ),
           ),
+            Text("The Date is a:"),
           ],
         ),
       ),
@@ -63,6 +69,20 @@ class CalendarPageState extends State<CalendarPage> {
         child: Icon(Icons.play_arrow),
       ), // This trailing comma makes auto-formatting nicer for build methods.
     );
+  }
+
+  __changeDate(){
+    DatePicker.showDatePicker(context,
+        showTitleActions: true,
+        minTime: DateTime(1900),
+        maxTime: DateTime(3000), onChanged: (date) {
+          print('change $date');
+        }, onConfirm: (date) {
+
+          setState(() {
+            pickedDate = date;
+          });
+        }, currentTime: pickedDate, locale: LocaleType.en);
   }
 }
 
