@@ -1,8 +1,8 @@
-import 'package:datetime_picker_formfield/datetime_picker_formfield.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/rendering.dart';
 import 'package:flutter/widgets.dart';
+import 'package:flutter_hackathon_aphasia/tts.dart';
 import 'package:intl/intl.dart';
+
 
 
 class CalendarPage extends StatefulWidget {
@@ -28,7 +28,7 @@ class CalendarPage extends StatefulWidget {
 
 class CalendarPageState extends State<CalendarPage> {
 
-  DateTime now = DateTime.now();
+  DateTime pickedDate = DateTime.now();
 
   @override
   Widget build(BuildContext context) {
@@ -42,38 +42,54 @@ class CalendarPageState extends State<CalendarPage> {
         // Center is a layout widget. It takes a single child and positions it
         // in the middle of the parent.
         child: Column(
-
+          mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            BasicDateField(),
-
+        new FlatButton(
+            onPressed: () {__changeDate(context);},
+            child: Text(
+              DateFormat('yyyy-MM-dd').format(pickedDate),
+              style: Theme.of(context).textTheme.display2,
+            ),
+        ),
+          new FlatButton(
+            onPressed: () {
+              __changeDate(context);
+            },
+            child: Text(
+              "Change Date"
+            ),
+          ),
+            Text("The Selected Date is a:"),
+            Text(
+              DateFormat('EEEE').format(pickedDate),
+              style: Theme.of(context).textTheme.display2,
+            ),
           ],
         ),
       ),
       floatingActionButton: FloatingActionButton(
 
-        tooltip: 'Increment',
-        child: Icon(Icons.play_arrow),
+        tooltip: 'Play',
+        child: TtsWidget(listenableText : "test"),
       ), // This trailing comma makes auto-formatting nicer for build methods.
     );
   }
+
+  __changeDate(BuildContext context) async {
+    final DateTime d = await showDatePicker( //we wait for the dialog to return
+      context: context,
+      initialDate: pickedDate,
+      firstDate: DateTime(1900),
+      lastDate: DateTime(3000),
+    );
+    if (d != null) //if the user has selected a date
+      setState(() {
+        // we format the selected date and assign it to the state variable
+        pickedDate = d;
+      });
+
+  }
+
 }
 
-class BasicDateField extends StatelessWidget {
-  final format = DateFormat("yyyy-MM-dd");
-  @override
-  Widget build(BuildContext context) {
-    return Column(children: <Widget>[
-      Text('Today is the'),
-      DateTimeField(
-        format: format,
-        onShowPicker: (context, currentValue) {
-          return showDatePicker(
-              context: context,
-              firstDate: DateTime(1900),
-              initialDate: currentValue ?? DateTime.now(),
-              lastDate: DateTime(2100));
-        },
-      ),
-    ]);
-  }
-}
+
