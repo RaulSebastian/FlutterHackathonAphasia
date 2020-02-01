@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_hackathon_aphasia/MainAppBar.dart';
 import 'package:flutter_hackathon_aphasia/calendar.dart';
 import 'package:translator/translator.dart';
 
@@ -22,7 +23,7 @@ class MyApp extends StatelessWidget {
         // is not restarted.
         primarySwatch: Colors.blue,
       ),
-      home: MyHomePage(title: 'Flutter Demo Home Page'),
+      home: MyHomePage(title: 'Aphasia Flutter App'),
     );
   }
 }
