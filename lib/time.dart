@@ -46,6 +46,15 @@ class TimePageState extends State<TimePage> {
                 formatTimeOfDay(timePicked),
                 style: Theme.of(context).textTheme.display2,
               ),
+
+            ),
+            new FlatButton(
+              onPressed: () {
+                __changeTime(context);
+              },
+              child: Text(
+                  "Change Time"
+              ),
             ),
           ],
         ),
