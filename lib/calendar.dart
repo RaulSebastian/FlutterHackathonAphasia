@@ -60,18 +60,18 @@ class CalendarPageState extends State<CalendarPage> {
             ),
           ),
             Text("The Selected Date is a:"),
-            Text(
-              DateFormat('EEEE').format(pickedDate),
-              style: Theme.of(context).textTheme.display2,
+            ListTile(
+              title: Text(
+                  DateFormat('EEEE').format(pickedDate),
+                  style: Theme.of(context).textTheme.display2,
+                ),
+              trailing: TtsWidget(listenableText : DateFormat('EEEE').format(pickedDate), language: "en-us",)
             ),
+
           ],
         ),
       ),
-      floatingActionButton: FloatingActionButton(
 
-        tooltip: 'Play',
-        child: TtsWidget(listenableText : "test"),
-      ), // This trailing comma makes auto-formatting nicer for build methods.
     );
   }
 
