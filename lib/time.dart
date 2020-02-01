@@ -60,10 +60,6 @@ class TimePageState extends State<TimePage> {
           ],
         ),
       ),
-      floatingActionButton: FloatingActionButton(
-        tooltip: 'Say',
-        child: Icon(Icons.play_arrow),
-      ), // This trailing comma makes auto-formatting nicer for build methods.
     );
   }
 
